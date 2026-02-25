@@ -1,4 +1,3 @@
 pandas
 requests
 python-dotenv
-kotak-neo-api-v2
