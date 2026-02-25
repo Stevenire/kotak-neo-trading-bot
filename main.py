@@ -28,7 +28,6 @@ def main():
         if signal is None:
             print("No trade signal.")
         else:
-            # PAPER: just printing what would happen
             print(f"Signal: {signal} (paper)")
             risk.on_trade()
 
