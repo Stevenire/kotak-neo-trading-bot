@@ -1,21 +1,24 @@
 import os
+from neo_api_client import NeoAPI
+
 
 class Broker:
     def __init__(self):
         self.api_key = os.getenv("KOTAK_API_KEY")
+        self.client = None
 
     def connect(self):
         if not self.api_key:
             print("API key not found!")
             return
 
-        if self.api_key in ("KOTAK_API_KEY", "your_api_key_here"):
-            print("API key is placeholder. Update GitHub Codespaces secret.")
-            return
+        print("Initializing Neo API client...")
+        self.client = NeoAPI(self.api_key)
 
-        print("Kotak API key loaded successfully.")
+        print("Neo API client initialized successfully.")
 
     def get_market_data(self):
+        # Placeholder for now
         return {}
 
     def place_order(self, action: str, contract: str, qty: int):
