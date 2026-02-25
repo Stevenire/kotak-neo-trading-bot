@@ -1,17 +1,23 @@
+import os
+
 class Broker:
-    """
-    Placeholder broker adapter.
-    Later we will connect this to Kotak Neo SDK safely.
-    """
+    def __init__(self):
+        self.api_key = os.getenv("KOTAK_API_KEY")
 
     def connect(self):
-        print("Broker connect() called")
+        if not self.api_key:
+            print("API key not found!")
+            return
+
+        if self.api_key in ("KOTAK_API_KEY", "your_api_key_here"):
+            print("API key is placeholder. Update GitHub Codespaces secret.")
+            return
+
+        print("Kotak API key loaded successfully.")
 
     def get_market_data(self):
-        # later: fetch candle/ltp from Kotak Neo
         return {}
 
     def place_order(self, action: str, contract: str, qty: int):
-        # later: call Kotak order API
-        print(f"PLACE ORDER: {action} {contract} x {qty}")
+        print(f"[PAPER] {action} {contract} x {qty}")
         return "ORDER_ID_PLACEHOLDER"
